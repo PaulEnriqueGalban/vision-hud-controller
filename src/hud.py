@@ -16,7 +16,7 @@ def update_fps(state: HudState) -> None:
     state.last_t = now
 
 def draw_hud(frame: np.ndarray, *, alpha: float = 0.75, text: str = "HUD", fps: float | None = None) -> np.ndarray:
-    h, w = frame.shape[:2]
+    _, w = frame.shape[:2]
     overlay = frame.copy()
     cv2.rectangle(overlay, (0, 0), (w, 48), (0, 0, 0), thickness=-1)
     blended = cv2.addWeighted(overlay, float(alpha), frame, 1.0 - float(alpha), 0)
